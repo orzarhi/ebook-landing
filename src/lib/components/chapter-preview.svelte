@@ -29,6 +29,12 @@
 				'Spain is renowned for its vibrant culture, from flamenco dancing and bullfighting to siestas and tapas. This chapter provides an overview of Spain’s rich cultural heritage, including its music, art, and cuisine. We’ll explore the best ways to immerse yourself in Spanish culture, from attending local festivals and events to learning the language and making new friends. Whether you’re a history buff, a foodie, or an art lover, Spain has something to offer everyone. Additionally, this chapter covers practical tips on adapting to the Spanish way of life, from dining etiquette to social customs.'
 		}
 	];
+
+	let selectedChapterId = $state(1);
+
+	function selectChapter(id: number) {
+		selectedChapterId = id;
+	}
 </script>
 
 <section class="chapter-preview default-margin">
@@ -39,8 +45,10 @@
 				<li>
 					<button
 						class="chapter-title"
+						class:selected-chapter-title={selectedChapterId === chapter.id}
 						aria-controls="chapter-info-{chapter.id}"
-						aria-expanded="true"
+						aria-expanded={selectedChapterId === chapter.id}
+						onclick={() => selectChapter(chapter.id)}
 					>
 						<h3>Chapter {chapter.id}: {chapter.title}</h3>
 					</button>
@@ -67,8 +75,8 @@
 
 <style>
 	.chapter-preview {
-		padding: 80px;
-		margin-left: 12vw;
+		padding: 20px 0;
+		margin-left: 7vw;
 		margin-right: 20vw;
 		max-width: 1150px;
 	}
