@@ -1,6 +1,7 @@
 <script lang="ts">
 	import bookCover from '$assets/book_cover.png';
 	import phoneCover from '$assets/phone_cover.png';
+	import { Button } from '$components';
 </script>
 
 <section class="hero">
@@ -15,11 +16,12 @@
 		<h1>THIS EBOOK WILL</h1>
 		<h1>SAVE YOU MONEY,</h1>
 		<h1 class="mb-m">TIME & NERVES</h1>
-		<p class="light-grey">
+		<p class="light-grey mb-l">
 			I moved to Spain seven years ago. The process was painful and difficult. I learned most things
 			the hard way: finding a job, getting a visa, calculating my cost of living, choosing an
 			apartment. That's why I wrote this e-book, to tell you how I did it. No bullshit, no stress.
 		</p>
+		<Button onclick={() => console.log('hi')}>Purchase E-book for $10</Button>
 	</div>
 </section>
 
@@ -33,12 +35,12 @@
 	.hero-showcase {
 		position: relative;
 		width: 50%;
-		padding: 100px 16px 0 16px;
+		padding: 50px 16px 0 16px;
 		background: linear-gradient(135deg, #e2cbff, #e2cbff 25%, #deeaff 50%, #ece5ff 75%, #927bce);
 	}
 
 	.hero-text {
-		padding: 100px 5%;
+		padding: 50px 16px 0 16px;
 		width: 50%;
 		background-color: black;
 	}
