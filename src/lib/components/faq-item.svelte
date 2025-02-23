@@ -1,16 +1,24 @@
 <script lang="ts">
-	import chevronDown  from '$assets/icons/chevron-down.svg';
+	import chevronDown from '$assets/icons/chevron-down.svg';
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	interface FaqItemProps extends HTMLAttributes<HTMLButtonElement> {
+		question: string;
+		answer: string;
+		isExpanded: boolean;
+	}
+
+	let { question, answer, isExpanded, ...props }: FaqItemProps = $props();
 </script>
 
-<button class="container">
+<button class="container" class:container-expanded={isExpanded} {...props}>
 	<div class="question-and-answer">
-		<p class="question mb-s">What will I learn from this ebook?</p>
+		<p class="question mb-s">
+			{question}
+		</p>
 
 		<p class="answer">
-			This book provides a complete guide to living in Spain, covering essential topics such as
-			visas and residency, finding a home, securing a job, and embracing Spanish culture. Whether
-			you're moving short-term or permanently, you'll gain valuable insights into navigating life in
-			Spain.
+			{answer}
 		</p>
 	</div>
 	<img src={chevronDown} alt="" />
