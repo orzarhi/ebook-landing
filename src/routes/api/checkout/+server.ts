@@ -22,10 +22,13 @@ export async function POST() {
 
 		return json({ sessionId: session.id });
 	} catch (error) {
-		console.log(error);
+		console.log('Error creating checkout session:', error);
 
 		return json(
-			{ error: ' An error occurred while creating the checkout session. Please try again.' },
+			{
+				success: false,
+				message: 'An error occurred while creating the checkout session. Please try again.'
+			},
 			{ status: 500 }
 		);
 	}
