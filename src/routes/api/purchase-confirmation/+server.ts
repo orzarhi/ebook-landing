@@ -20,14 +20,12 @@ export async function POST({ request }) {
 
 		const stripeEvent = stripe.webhooks.constructEvent(body, signature, STRIPE_WEBHOOK_SECRET);
 
-		console.log({ stripeEvent });
 		if (stripeEvent.type !== 'checkout.session.completed') {
 			return json({ success: false, message: 'Invalid event type' }, { status: 400 });
 		}
 
 		const { name, email } = stripeEvent?.data?.object.customer_details || {};
 
-		console.log({ name, email });
 		const response = await fetch(PDF_GUIDE_URL);
 		const pdfBuffer = await response.arrayBuffer();
 		const pdfBase64 = Buffer.from(pdfBuffer).toString('base64');
