@@ -35,5 +35,9 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"@stripe/stripe-js": "^5.6.0",
+		"stripe": "^17.6.0"
 	}
 }
